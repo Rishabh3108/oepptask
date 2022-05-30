@@ -1,3 +1,4 @@
+import 'package:finaloepptask1/utils/shareprefrance.dart';
 import 'package:flutter/material.dart';
 
 class Profilepage extends StatefulWidget {
@@ -31,13 +32,13 @@ class _ProfilepageState extends State<Profilepage> {
               child: Column(crossAxisAlignment:CrossAxisAlignment.start  ,
                 children: [
                 Text(
-                  'Full name',
+                  UserPreference().getStringPref(UserPreference.userName),
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),
                 ),
                 SizedBox(height: 20,),
                 Text(
-                  'Email',
+                  UserPreference().getStringPref(UserPreference.email),
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),
                 ),

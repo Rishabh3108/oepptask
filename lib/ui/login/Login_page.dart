@@ -1,3 +1,5 @@
+import 'package:finaloepptask1/ui/dashboard.dart';
+import 'package:finaloepptask1/utils/shareprefrance.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  TextEditingController userName  = TextEditingController();
+  TextEditingController mobile  = TextEditingController();
+  TextEditingController email  = TextEditingController();
+  TextEditingController pass  = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: userName,
                     validator: (value){
                       if(value!.isEmpty){
                         return "please enter your name";
@@ -41,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                         hintStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   TextFormField(
+                    controller: mobile,
                     maxLength: 10,
                     validator: (value){
                       if(value!.isEmpty){
@@ -54,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                         hintStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   TextFormField(
+                    controller: email,
                     validator: (value){
                       if(value!.isEmpty){
                         return "please enter your email";
@@ -66,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   TextFormField(
+                    controller: pass,
                     validator: (value){
                       if(value!.isEmpty){
                         return "please enter correct password";
@@ -85,6 +102,13 @@ class _LoginPageState extends State<LoginPage> {
           TextButton(onPressed: (){
             if(_formKey.currentState!.validate()){
               _formKey.currentState!.save();
+              print(userName.text);
+              print(email.text);
+              print(mobile.text);
+              UserPreference().setStringPref(UserPreference.userName, userName.text);
+              UserPreference().setStringPref(UserPreference.email, email.text);
+              UserPreference().setStringPref(UserPreference.mobile, mobile.text);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dashboard()));
               print("Form submited");
             }else{
 
