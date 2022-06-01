@@ -13,16 +13,16 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  TextEditingController userName  = TextEditingController();
-  TextEditingController mobile  = TextEditingController();
-  TextEditingController email  = TextEditingController();
-  TextEditingController pass  = TextEditingController();
+  TextEditingController userName = TextEditingController();
+  TextEditingController mobile = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,53 +44,128 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextFormField(
                     controller: userName,
-                    validator: (value){
-                      if(value!.isEmpty){
+                    validator: (value) {
+                      if (value!.isEmpty) {
                         return "please enter your name";
                       }
                     },
                     keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.red)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.green)),
+                        disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.orange)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.black)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.black)),
                         hintText: 'Name',
                         hintStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
-                    controller: mobile,
-                    maxLength: 10,
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return "please enter your mobile number";
-                      }
-                    },
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        counterText: '',
-                        hintText: "Mobile No",
-                        hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+                      controller: mobile,
+                      maxLength: 10,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "please enter your mobile number";
+                        }
+                      },
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(color: Colors.green)),
+                          errorBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(color: Colors.red)),
+                          disabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(color: Colors.orange)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(color: Colors.black)),
+                          counterText: '',
+                          hintText: "Mobile No",
+                          hintStyle: TextStyle(fontWeight: FontWeight.bold))),
+                  SizedBox(
+                    height: 10,
                   ),
                   TextFormField(
                     controller: email,
-                    validator: (value){
-                      if(value!.isEmpty){
+                    validator: (value) {
+                      if (value!.isEmpty) {
                         return "please enter your email";
                       }
                     },
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(color: Colors.green)),
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(color: Colors.red)),
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(color: Colors.orange)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(color: Colors.black)),
                       hintText: 'Email',
                       hintStyle: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     controller: pass,
-                    validator: (value){
-                      if(value!.isEmpty){
+                    validator: (value) {
+                      if (value!.isEmpty) {
                         return "please enter correct password";
                       }
                     },
-                    obscureText:true ,
-                      keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
+                    obscureText: true,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.green)),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.red)),
+                        disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.orange)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(color: Colors.black)),
                         hintText: 'Password',
                         hintStyle: TextStyle(fontWeight: FontWeight.bold)),
                   )
@@ -98,22 +173,46 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+          // TextButton(
+          //     onPressed: () {
+          //       if (_formKey.currentState!.validate()) {
+          //         _formKey.currentState!.save();
+          //         print(userName.text);
+          //         print(email.text);
+          //         print(mobile.text);
+          //         UserPreference()
+          //             .setStringPref(UserPreference.userName, userName.text);
+          //         UserPreference()
+          //             .setStringPref(UserPreference.email, email.text);
+          //         UserPreference()
+          //             .setStringPref(UserPreference.mobile, mobile.text);
+          //         Navigator.of(context).push(
+          //             MaterialPageRoute(builder: (context) => Dashboard()));
+          //         print("Form submited");
+          //       } else {}
+          //     },
+          //     child: const Text('Submit')),
 
-          TextButton(onPressed: (){
-            if(_formKey.currentState!.validate()){
-              _formKey.currentState!.save();
-              print(userName.text);
-              print(email.text);
-              print(mobile.text);
-              UserPreference().setStringPref(UserPreference.userName, userName.text);
-              UserPreference().setStringPref(UserPreference.email, email.text);
-              UserPreference().setStringPref(UserPreference.mobile, mobile.text);
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dashboard()));
-              print("Form submited");
-            }else{
+           CupertinoButton.filled(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                print(userName.text);
+                print(email.text);
+                print(mobile.text);
+                UserPreference()
+                    .setStringPref(UserPreference.userName, userName.text);
+                UserPreference()
+                    .setStringPref(UserPreference.email, email.text);
+                UserPreference()
+                    .setStringPref(UserPreference.mobile, mobile.text);
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Dashboard()));
+                print("Form submited");
+              } else {}
+            },
+            child: const Text('Submit')),
 
-            }
-          }, child: const Text('Submit'))
         ],
       ),
     );
